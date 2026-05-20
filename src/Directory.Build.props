@@ -29,7 +29,10 @@
 
     <NuGetAudit>true</NuGetAudit>
     <NuGetAuditMode>all</NuGetAuditMode>
-    <NuGetAuditLevel>low</NuGetAuditLevel>
+    <NuGetAuditLevel>critical</NuGetAuditLevel>
+    <VCToolsVersion>14.44.35207</VCToolsVersion>
+    <CheckMSVCComponents>false</CheckMSVCComponents>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
   </PropertyGroup>
 
   <PropertyGroup>

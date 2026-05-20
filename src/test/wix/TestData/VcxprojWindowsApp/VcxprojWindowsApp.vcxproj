@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{8f2a12cd-6d3b-4648-81a9-2a852a63ea90}</ProjectGuid>
+    <VCToolsVersion>14.44.35207</VCToolsVersion><CheckMSVCComponents>false</CheckMSVCComponents><PreferredToolArchitecture>x64</PreferredToolArchitecture><ProjectGuid>{8f2a12cd-6d3b-4648-81a9-2a852a63ea90}</ProjectGuid>
     <RootNamespace>VcxprojWindowsApp</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>

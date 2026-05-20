@@ -23,7 +23,7 @@
 :: Build
 :: Pack
 
-msbuild api_t.proj -p:Configuration=%_C% -tl -nologo -warnaserror -bl:%_L%\api_build.binlog || exit /b
+msbuild api_t.proj -p:Configuration=%_C% -p:VCToolsVersion=14.44.35207 -p:PlatformToolset=v143 -tl -nologo -warnaserror -bl:%_L%\api_build.binlog || exit /b
 
 :: Test
 dotnet test ^
