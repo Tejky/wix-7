@@ -65,7 +65,9 @@ jobs:
 
       - name: Register MSXML
         shell: cmd
-        run: regsvr32 /s "%SystemRoot%\System32\msxml6.dll"
+        run: |
+          regsvr32 /s "%SystemRoot%\System32\msxml6.dll"
+          regsvr32 /s "%SystemRoot%\SysWOW64\msxml6.dll"
 
       - name: Disable NuGet vulnerability audit
         shell: powershell
