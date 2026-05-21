@@ -69,7 +69,7 @@ jobs:
 
       - name: Disable NuGet vulnerability audit
         shell: cmd
-        run: dotnet nuget config set audit false --global
+        run: dotnet nuget config set audit false --configfile %APPDATA%\NuGet\NuGet.Config
 
       - name: Build wix8
         shell: cmd
