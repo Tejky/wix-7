@@ -63,6 +63,11 @@ jobs:
           client-id: ${{ secrets.WIX_SIGNING_CLIENTID }}
           tenant-id: ${{ secrets.WIX_SIGNING_TENANTID }}
 
+      - name: Accept WiX EULA
+        shell: cmd
+        run: |
+          .\build\wix\Release\publish\wix\wix.exe eula accept wix0
+
       - name: Build wix8
         shell: cmd
         run: ./src/build_official.cmd

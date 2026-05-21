@@ -57,10 +57,9 @@ namespace WixToolsetTest.CoreIntegration
 
         private static void CleanEulaFile()
         {
-            if (Directory.Exists(EulaFileFolder))
+            if (File.Exists(EulaFilePath))
             {
                 File.Delete(EulaFilePath);
-                Directory.Delete(EulaFileFolder);
             }
         }
     }
