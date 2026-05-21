@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project>
+  <Import Project="..\Directory.Build.props" />
   <PropertyGroup>
     <NuGetAuditLevel>critical</NuGetAuditLevel>
   </PropertyGroup>
-  <Import Project="..\Directory.Build.props" />
 </Project>

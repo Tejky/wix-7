@@ -35,6 +35,11 @@
     <PreferredToolArchitecture>x64</PreferredToolArchitecture>
   </PropertyGroup>
 
+  <!-- Suppress known vulnerability in self-built WixToolset.Sdk package -->
+  <ItemGroup>
+    <NuGetAuditSuppress Include="https://github.com/advisories/GHSA-rf39-3f98-xr7r" />
+  </ItemGroup>
+
   <PropertyGroup>
     <Authors Condition=" '$(WixOfficialBuild)'!='true' ">WiX Dev Build</Authors>
     <Authors Condition=" '$(WixOfficialBuild)'=='true' ">WiX Toolset Team</Authors>

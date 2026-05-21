@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <!-- If the git information wasn't imported yet, import the cached git information. -->
-  <Import Project="$(RootBuildFolder)SomeVerInfo.props" Condition=" '$(SomeVerInfoImported)'!='true' " />
+  <Import Project="$(RootBuildFolder)SomeVerInfo.props" Condition=" '$(SomeVerInfoImported)'!='true' and '$(RootBuildFolder)'!='' " />
   <Import Project="internal/SetBuildNumber/SomeVerInfo.targets" />
 
   <PropertyGroup>
