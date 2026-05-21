@@ -8,7 +8,7 @@ namespace WixInternal.TestSupport
 
     public class MsbuildRunner : ExternalExecutable
     {
-        private static readonly string VswhereFindArguments = "-property installationPath -version [17.0,18.0)";
+        private static readonly string VswhereFindArguments = "-property installationPath -version [17.0,19.0)";
         private static readonly string MsbuildCurrentRelativePath = @"MSBuild\Current\Bin\MSBuild.exe";
         private static readonly string MsbuildCurrentRelativePath64 = @"MSBuild\Current\Bin\amd64\MSBuild.exe";
 
@@ -59,6 +59,19 @@ namespace WixInternal.TestSupport
                                 msbuildCurrentPath64 = path;
                             }
                         }
+                    }
+
+                    // Fallback for VS Preview/Insiders not registered with vswhere
+                    if (msbuildCurrentPath == null)
+                    {
+                        var fallback = @"C:\Program Files\Microsoft Visual Studio\18\Insiders\MSBuild\Current\Bin\MSBuild.exe";
+                        if (File.Exists(fallback)) msbuildCurrentPath = fallback;
+                    }
+
+                    if (msbuildCurrentPath64 == null)
+                    {
+                        var fallback = @"C:\Program Files\Microsoft Visual Studio\18\Insiders\MSBuild\Current\Bin\amd64\MSBuild.exe";
+                        if (File.Exists(fallback)) msbuildCurrentPath64 = fallback;
                     }
 
                     if (msbuildCurrentPath != null)
