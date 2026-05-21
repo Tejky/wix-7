@@ -68,8 +68,20 @@ jobs:
         run: regsvr32 /s "%SystemRoot%\System32\msxml6.dll"
 
       - name: Disable NuGet vulnerability audit
-        shell: cmd
-        run: dotnet nuget config set audit false --configfile %APPDATA%\NuGet\NuGet.Config
+        shell: powershell
+        run: |
+          $configPath = "$env:APPDATA\NuGet\NuGet.Config"
+          $xml = [xml](Get-Content $configPath)
+          $config = $xml.configuration.config
+          if ($config -eq $null) {
+            $config = $xml.CreateElement("config")
+            $xml.configuration.AppendChild($config) | Out-Null
+          }
+          $add = $xml.CreateElement("add")
+          $add.SetAttribute("key", "audit")
+          $add.SetAttribute("value", "false")
+          $config.AppendChild($add) | Out-Null
+          $xml.Save($configPath)
 
       - name: Build wix8
         shell: cmd
