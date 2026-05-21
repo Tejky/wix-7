@@ -67,6 +67,10 @@ jobs:
         shell: cmd
         run: regsvr32 /s "%SystemRoot%\System32\msxml6.dll"
 
+      - name: Disable NuGet vulnerability audit
+        shell: cmd
+        run: dotnet nuget config set audit false --global
+
       - name: Build wix8
         shell: cmd
         run: ./src/build_official.cmd
