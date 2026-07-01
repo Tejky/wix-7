@@ -20,15 +20,15 @@
 @echo Building wix %_C%
 
 :: Restore
-msbuild -t:Restore wix.slnx -p:Configuration=%_C% -p:VCToolsVersion=14.44.35207 -p:PlatformToolset=v143 -p:CheckMSVCComponents=false -p:PreferredToolArchitecture=x64 -tl -nologo -m -warnaserror -bl:%_L%\wix_restore.binlog || exit /b
+msbuild -t:Restore wix.slnx -p:Configuration=%_C% -p:PlatformToolset=v145 -p:CheckMSVCComponents=false -p:PreferredToolArchitecture=x64 -tl -nologo -m -warnaserror -bl:%_L%\wix_restore.binlog || exit /b
 
 
 :: Build
-msbuild wixnative\wixnative_t.proj -p:Configuration=%_C% -p:VCToolsVersion=14.44.35207 -p:PlatformToolset=v143 -p:CheckMSVCComponents=false -p:PreferredToolArchitecture=x64 -tl -nologo -m -warnaserror -bl:%_L%\wixnative_build.binlog || exit /b
+msbuild wixnative\wixnative_t.proj -p:Configuration=%_C% -p:PlatformToolset=v145 -p:CheckMSVCComponents=false -p:PreferredToolArchitecture=x64 -tl -nologo -m -warnaserror -bl:%_L%\wixnative_build.binlog || exit /b
 
-msbuild wix.slnx -p:Configuration=%_C% -p:VCToolsVersion=14.44.35207 -p:PlatformToolset=v143 -p:CheckMSVCComponents=false -p:PreferredToolArchitecture=x64 -tl -nologo -m -warnaserror -bl:%_L%\wix_build.binlog || exit /b
+msbuild wix.slnx -p:Configuration=%_C% -p:PlatformToolset=v145 -p:CheckMSVCComponents=false -p:PreferredToolArchitecture=x64 -tl -nologo -m -warnaserror -bl:%_L%\wix_build.binlog || exit /b
 
-msbuild publish_t.proj -p:Configuration=%_C% -p:VCToolsVersion=14.44.35207 -p:PlatformToolset=v143 -p:CheckMSVCComponents=false -p:PreferredToolArchitecture=x64 -tl -nologo -warnaserror -bl:%_L%\wix_publish.binlog || exit /b
+msbuild publish_t.proj -p:Configuration=%_C% -p:PlatformToolset=v145 -p:CheckMSVCComponents=false -p:PreferredToolArchitecture=x64 -tl -nologo -warnaserror -bl:%_L%\wix_publish.binlog || exit /b
 
 msbuild -t:Publish -p:Configuration=%_C% -tl -nologo -warnaserror WixToolset.Sdk\WixToolset.Sdk.csproj -bl:%_L%\wix_sdk_publish.binlog || exit /b
 

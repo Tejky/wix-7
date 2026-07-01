@@ -36,8 +36,7 @@
     <ProjectSubSystem>Console</ProjectSubSystem>
     <TargetName>wixnative</TargetName>
     <Description>WiX Native Processing</Description>
-    <PlatformToolset>v143</PlatformToolset>
-    <VCToolsVersion>14.44.35207</VCToolsVersion>
+    <PlatformToolset>v145</PlatformToolset>
     <CheckMSVCComponents>false</CheckMSVCComponents>
   </PropertyGroup>
 

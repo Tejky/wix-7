@@ -25,7 +25,7 @@ nuget restore || exit /b
 :: dotnet pack -c %_C% WixBuildTools.MsgGen\WixBuildTools.MsgGen.csproj || exit /b
 :: dotnet pack -c %_C% WixBuildTools.XsdGen\WixBuildTools.XsdGen.csproj || exit /b
 
-msbuild internal_t.proj -p:Configuration=%_C% -p:VCToolsVersion=14.44.35207 -p:PlatformToolset=v143 -tl -nologo -warnaserror -p:NuGetAuditLevel=critical -bl:%_L%\internal_build.binlog || exit /b
+msbuild internal_t.proj -p:Configuration=%_C% -p:PlatformToolset=v145 -tl -nologo -warnaserror -p:NuGetAuditLevel=critical -bl:%_L%\internal_build.binlog || exit /b
 
 @goto :end
 

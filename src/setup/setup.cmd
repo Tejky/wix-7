@@ -18,9 +18,9 @@
 @echo Building setup %_C%
 
 :: Build
-msbuild -Restore MetadataTask\MetadataTask.csproj -p:Configuration=%_C% -p:VCToolsVersion=14.44.35207 -p:PlatformToolset=v143 -tl -nologo -m -warnaserror -bl:%_L%\setup_task.binlog || exit /b
+msbuild -Restore MetadataTask\MetadataTask.csproj -p:Configuration=%_C% -p:PlatformToolset=v145 -tl -nologo -m -warnaserror -bl:%_L%\setup_task.binlog || exit /b
 
-msbuild -Restore setup.slnx -p:Configuration=%_C% -p:VCToolsVersion=14.44.35207 -p:PlatformToolset=v143 -tl -nologo -m -warnaserror -bl:%_L%\setup_build.binlog || exit /b
+msbuild -Restore setup.slnx -p:Configuration=%_C% -p:PlatformToolset=v145 -tl -nologo -m -warnaserror -bl:%_L%\setup_build.binlog || exit /b
 
 :: Publish
 
