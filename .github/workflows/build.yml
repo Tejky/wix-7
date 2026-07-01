@@ -54,6 +54,7 @@ jobs:
           reg add "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\Windows Error Reporting\LocalDumps" /t REG_EXPAND_SZ /v DumpFolder /d "%CD%\build\logs\crashdumps" /f
           reg add "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\Windows Error Reporting\LocalDumps" /t REG_DWORD /v DumpCount /d 10 /f
           reg add "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\Windows Error Reporting\LocalDumps" /t REG_DWORD /v DumpType /d 1
+          reg add "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting" /t REG_DWORD /v DontShowUI /d 1 /f
 
       - name: 'Az CLI login'
         if: ${{ env.SignBuild == 'true' }}
@@ -87,6 +88,7 @@ jobs:
 
       - name: Build wix8
         shell: cmd
+        timeout-minutes: 90
         run: ./src/build_official.cmd
         env:
           RuntimeTestsEnabled: true
